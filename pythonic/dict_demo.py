@@ -1,4 +1,4 @@
-# For each key , value
+### For each key , value
 d = {
     "1": "No1",
     "2": "No2",
@@ -8,12 +8,19 @@ d = {
 for key, value in d.iteritems():
     print key, value
 
-# build dict from two lists
+### build dict from two lists
 x_list = [1, 2, 3]
 y_list = ['a', 'b', 'c']
 
 print dict(zip(x_list, y_list))
 
-# create dict from list, use list as key, and default value 1
+### create dict from list, use list as key, and default value 1
 d = dict.fromkeys(["a", "b", "c"], 3)
 print d
+
+### Calculate element occur times
+from collections import Counter
+
+nums = [1, 2, 3, 3, 5, 7, 7, 9, 9, 9, 9]
+dic = Counter(nums)
+print dic
