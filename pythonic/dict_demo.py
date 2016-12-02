@@ -24,3 +24,11 @@ from collections import Counter
 nums = [1, 2, 3, 3, 5, 7, 7, 9, 9, 9, 9]
 dic = Counter(nums)
 print dic
+
+### Get default dict, avoid error when the key does not exist
+import collections
+list_dic = collections.defaultdict(list)
+print list_dic["a"]
+digits = collections.defaultdict(int)
+print digits["a"]
+
