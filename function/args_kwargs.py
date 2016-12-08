@@ -52,11 +52,29 @@ def use_together(fargs, *args, **kwargs):
     for arg in args:
         print("arg through *args:", arg)
     for key, value in kwargs.items():
-        print("{0} = {1}".format(key, value))
+        print("key {0} = value {1}".format(key, value))
+    print args
 
 
-test_var_args('yasoob', 'python', 'eggs', 'test')
+def create_user(**args):
+    email = args.get("email", "")
+    password = args.get("password", "")
+    first_name = args.get("first_name", "")
+    for key, value in args.items():
+        print("key {0} = value {1}".format(key, value))
+
+
+def create_user_old(email, password, exp_date):
+    pass
+
 
 if __name__ == "__main__":
-    use_together("agrs1", 'args_1', 'args_2', 'args_3', {"arg1": 1, "arg2": "two", "arg2": 2})
-    use_together("agrs1", args={"arg1": 1, "arg2": "two", "arg2": 2})
+    # use_together("agrs1", 'args_1', 'args_2', 'args_3', {"arg1": 1, "arg2": "two", "arg2": 2})
+    use_together("agrs1", key1={"arg1": 1, "arg2": "two", "arg2": 2}, key2={"arg1": 1, "arg2": "two", "arg2": 2})
+
+    # Error: SyntaxError: non-keyword arg after keyword arg
+    # All arguments like a=x, b=xx will be deal as **kwargs
+    # use_together("agrs1", aaa={"arg1": 1, "arg2": "two", "arg2": 2}, {"arg1": 1, "arg2": "two", "arg2": 2})
+
+    # create_user(email="a@1.com", first_name="tom", exp_date="1233-11-222")
+    # create_user_old("1233-11-222")
