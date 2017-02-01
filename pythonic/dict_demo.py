@@ -8,6 +8,15 @@ d = {
 for key, value in d.iteritems():
     print key, value
 
+
+#For Python 2.x:
+
+for key, value in d.iteritems():
+    pass
+#For Python 3.x:
+for key, value in d.items():
+    pass
+
 ### build dict from two lists
 x_list = [1, 2, 3]
 y_list = ['a', 'b', 'c']
