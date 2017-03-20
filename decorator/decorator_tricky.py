@@ -11,8 +11,8 @@ Why?
 We already know when Python encountered the @ symbol it did an internal equivalent of
     func = decorator(func)
 
-The reason is when the parameter is not function, python will do
-    decorator = log('-log message-')
+The reason is when the parameter of decorator is not function, python will do
+    decorator = register('-log message-')
     decorated_func = decorator(fun)
     decorated_func()
 At step 2 decorator(fun) was executed and print message!
