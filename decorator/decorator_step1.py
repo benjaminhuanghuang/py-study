@@ -1,36 +1,45 @@
-# coding: utf8
+'''
+http://curiosityhealsthecat.blogspot.in/2013/06/thinking-out-aloud-python-decorators_8528.html
+
+when Python encountered the @ symbol it did an internal equivalent of
+    func = decorator(func)
 '''
 
-http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000
-https://www.kancloud.cn/wizardforcel/liaoxuefeng/108528
-http://www.cnblogs.com/rhcad/archive/2011/12/21/2295507.html
 
-purpose:  Enhance a function but do not change the definition of the function
-'''
+def decorator(func):
+    def wrapper():
+        print "Decorator calling func"
+        func()
+        print "Decorator called func"
 
-# Step 1. Define a function
-# Step 2. Add a decorator to myfunc
-def log(func):
-    def wrapper(*args, **kw):
-        print 'call %s():' % func.__name__
-        return func(*args, **kw)
     return wrapper
 
-# @log
-def now():
-    print "2017"
 
-decorated_func = log(now)
-decorated_func()
-'''
-此时执行代码会输出
-call wrapper():
-call now():
-2017
-这是因为把@log放在def new() 之前，也会引发函数调用。
-如果注释掉@log再执行，输出为
-call now():
-2017
-'''
+@decorator
+def func():
+    print "In the function"
 
-# now()
+
+def decorator_message(message):
+    def decorator(func):
+        def wrapper():
+            print "Decorator calling func " + message
+            return func()
+            print "Decorator called func " + message
+
+        return wrapper
+
+    return decorator
+
+def decorator_message2(name):
+    def wrapper(func):
+        print "register function '{0}' ".format(name)
+        return func()
+    return wrapper
+
+
+@decorator_message("hello")
+def func2():
+    print "In the function2"
+
+# func2()
