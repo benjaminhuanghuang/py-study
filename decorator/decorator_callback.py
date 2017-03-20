@@ -6,7 +6,9 @@ when Python encountered the @ symbol it did an internal equivalent of
 
 using @app.register('/') cause calling to register()
 
-In Flask-Login, we create
+In Flask, decorator was used to register route function like
+    @user.route('/next_page')
+    def next_page_func()
 
 '''
 
