@@ -14,10 +14,16 @@ items = [
 
     {"id": 1, "name": "No1"},
     {"id": 2, "name": "No2"},
+    {"id": 2, "name": "No3"},
 ]
 
 items.sort(key=lambda l: (l["id"]))
 items.sort(key=lambda l: (l["name"]), reverse=True)
+print items
+
+# Sort by multiple file
+items.sort(key=lambda i: (i["id"], i["name"]))
+print ">> sort by id and name"
 print items
 
 colors = ['red', 'green', 'blue', 'yellow']
@@ -35,4 +41,6 @@ def compare_length(c1, c2):
        return 1
     return 0
 print sorted(colors, cmp = compare_length)
+
+
 
