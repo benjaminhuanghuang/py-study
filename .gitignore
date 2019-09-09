@@ -45,7 +45,8 @@ nosetests.xml
 *.sqlite
 
 # Virtual environment
-venv
+venv/
+venv3/
 
 #
 *.log
