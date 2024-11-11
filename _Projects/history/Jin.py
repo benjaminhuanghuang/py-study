@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# data = pd.read_csv('./Jin.csv')
-data = pd.read_csv('./3FamiliesDivideJin.csv')
+data = pd.read_csv('./Jin.csv')
+#data = pd.read_csv('./3FamiliesDivideJin.csv')
 data["Level"] = [np.random.randint(-6,-2) if (i%2)==0 else np.random.randint(2, 6) for i in range(len(data))]
 
 # data["Year"] = pd.to_datetime(data["Year"])
