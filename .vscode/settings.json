@@ -1,3 +1,11 @@
 {
-  "python.pythonPath": "/usr/local/opt/python/bin/python3.7"
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "chat.tools.autoApprove": true
 }
