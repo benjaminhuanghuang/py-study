@@ -11,19 +11,22 @@ from stack import Stack
 
 def dfs(maze, start, goal):
     stack = Stack()
+    # Step 1
     stack.push(start)
-    predecessors = {start: None}
+    predecessors = {start: None}  # used to generate the path and record the visited cells
 
+    # Step 2
     while not stack.is_empty():
         current_cell = stack.pop()
         if current_cell == goal:
             return get_path(predecessors, start, goal)
         for direction in ["up", "right", "down", "left"]:
             row_offset, col_offset = offsets[direction]
-            neighbour = (current_cell[0] + row_offset, current_cell[1] + col_offset)
-            if is_legal_pos(maze, neighbour) and neighbour not in predecessors:
-                stack.push(neighbour)
-                predecessors[neighbour] = current_cell
+            neighbor = (current_cell[0] + row_offset, current_cell[1] + col_offset)
+            # process un-visited neighbors
+            if is_legal_pos(maze, neighbor) and neighbor not in predecessors:
+                stack.push(neighbor)
+                predecessors[neighbor] = current_cell
     return None
 
 
