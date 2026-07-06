@@ -1,6 +1,5 @@
 
-
-# Setup Venv
+# Setup virtual env
 
 ```sh
 python3 -m venv venv3
