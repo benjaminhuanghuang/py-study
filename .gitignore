@@ -47,6 +47,7 @@ nosetests.xml
 # Virtual environment
 venv/
 venv3/
+.venv*/
 
 #
 *.log
